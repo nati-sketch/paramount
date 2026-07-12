@@ -17,7 +17,7 @@ type Order = {
 export const Route = createFileRoute("/staff")({
   head: () => ({
     meta: [
-      { title: "Staff Dashboard · Brew & Bite" },
+      { title: "Staff Dashboard · Paramount Cafe" },
       { name: "description", content: "Live incoming orders for café staff." },
       { name: "robots", content: "noindex" },
     ],
@@ -110,7 +110,7 @@ function StaffDashboard() {
               ☕
             </span>
             <span>
-              <p className="font-display text-lg">Brew &amp; Bite</p>
+              <p className="font-display text-lg">Paramount Cafe</p>
               <p className="text-[11px] uppercase tracking-widest text-cream/60">
                 Kitchen dashboard
               </p>

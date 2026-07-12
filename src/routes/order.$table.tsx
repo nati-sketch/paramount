@@ -7,10 +7,10 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/order/$table")({
   head: ({ params }) => ({
     meta: [
-      { title: `Order — Table ${params.table} · Brew & Bite` },
+      { title: `Order — Table ${params.table} · Paramount Cafe` },
       {
         name: "description",
-        content: `Order from Table ${params.table} at Brew & Bite. Scan, tap, enjoy.`,
+        content: `Order from Table ${params.table} at Paramount Cafe. Scan, tap, enjoy.`,
       },
     ],
   }),
@@ -89,7 +89,7 @@ function OrderPage() {
               <span className="grid h-8 w-8 place-items-center rounded-full bg-espresso text-gold">
                 ☕
               </span>
-              <span className="font-display text-base">Brew &amp; Bite</span>
+              <span className="font-display text-base">Paramount Cafe</span>
             </Link>
             <span className="rounded-full border border-gold/50 bg-espresso/60 px-3 py-1 text-xs uppercase tracking-widest text-gold">
               Table {tableNumber}

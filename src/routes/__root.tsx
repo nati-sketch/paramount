@@ -72,16 +72,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Brew & Bite — Scan. Order. Enjoy." },
+      { title: "Paramount Cafe — Scan. Order. Enjoy." },
       {
         name: "description",
         content:
-          "Modern café ordering. Scan the QR code on your table, browse the menu, and send your order straight to the kitchen.",
+          "Modern coffee ordering at Paramount Cafe. Scan the QR code on your table, browse the menu, and send your order straight to the kitchen.",
       },
-      { property: "og:title", content: "Brew & Bite — Scan. Order. Enjoy." },
+      { property: "og:title", content: "Paramount Cafe — Scan. Order. Enjoy." },
       {
         property: "og:description",
-        content: "Table-side QR ordering for a modern café experience.",
+        content: "Table-side QR ordering at Paramount Cafe.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

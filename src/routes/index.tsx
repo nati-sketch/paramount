@@ -24,7 +24,7 @@ function Landing() {
               ☕
             </span>
             <span className="font-display text-lg font-semibold tracking-tight">
-              Brew &amp; Bite
+              Paramount Cafe
             </span>
           </a>
           <nav className="hidden gap-6 text-sm text-muted-foreground sm:flex">
@@ -207,7 +207,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Brew &amp; Bite Café — table-side ordering made simple.
+        © {new Date().getFullYear()} Paramount Cafe — table-side ordering made simple.
       </footer>
     </div>
   );
