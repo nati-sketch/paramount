@@ -7,10 +7,10 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/order/$table")({
   head: ({ params }) => ({
     meta: [
-      { title: `Order — Table ${params.table} · Brew & Bite` },
+      { title: `Order — Table ${params.table} · Paramount Cafe` },
       {
         name: "description",
-        content: `Order from Table ${params.table} at Brew & Bite. Scan, tap, enjoy.`,
+        content: `Order from Table ${params.table} at Paramount Cafe. Scan, tap, enjoy.`,
       },
     ],
   }),
