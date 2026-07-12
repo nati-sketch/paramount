@@ -19,8 +19,8 @@ const MAX_TABLES = 50;
 
 function PrintQrPage() {
   const [origin, setOrigin] = useState("");
-  const { tables } = Route.useSearch<{ tables?: number }>();
-  const tableCount = Math.max(1, Math.min(MAX_TABLES, Number(tables) || 6));
+  const search = Route.useSearch();
+  const tableCount = Math.max(1, Math.min(MAX_TABLES, Number(search.tables) || 6));
 
   useEffect(() => {
     setOrigin(window.location.origin);

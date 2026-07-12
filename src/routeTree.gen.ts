@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StaffRouteImport } from './routes/staff'
+import { Route as PrintQrRouteImport } from './routes/print-qr'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OrderTableRouteImport } from './routes/order.$table'
 
 const StaffRoute = StaffRouteImport.update({
   id: '/staff',
   path: '/staff',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintQrRoute = PrintQrRouteImport.update({
+  id: '/print-qr',
+  path: '/print-qr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,30 +37,34 @@ const OrderTableRoute = OrderTableRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/print-qr': typeof PrintQrRoute
   '/staff': typeof StaffRoute
   '/order/$table': typeof OrderTableRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/print-qr': typeof PrintQrRoute
   '/staff': typeof StaffRoute
   '/order/$table': typeof OrderTableRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/print-qr': typeof PrintQrRoute
   '/staff': typeof StaffRoute
   '/order/$table': typeof OrderTableRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/staff' | '/order/$table'
+  fullPaths: '/' | '/print-qr' | '/staff' | '/order/$table'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/staff' | '/order/$table'
-  id: '__root__' | '/' | '/staff' | '/order/$table'
+  to: '/' | '/print-qr' | '/staff' | '/order/$table'
+  id: '__root__' | '/' | '/print-qr' | '/staff' | '/order/$table'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PrintQrRoute: typeof PrintQrRoute
   StaffRoute: typeof StaffRoute
   OrderTableRoute: typeof OrderTableRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/staff'
       fullPath: '/staff'
       preLoaderRoute: typeof StaffRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/print-qr': {
+      id: '/print-qr'
+      path: '/print-qr'
+      fullPath: '/print-qr'
+      preLoaderRoute: typeof PrintQrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PrintQrRoute: PrintQrRoute,
   StaffRoute: StaffRoute,
   OrderTableRoute: OrderTableRoute,
 }
