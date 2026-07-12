@@ -162,8 +162,17 @@ function Landing() {
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
               Each code links to a specific table number. Save the images or
-              print this page.
+              print the full sheet.
             </p>
+            <div className="mt-4">
+              <Link
+                to="/print-qr"
+                search={{ tables: tableCount }}
+                className="inline-flex items-center gap-2 rounded-full border border-gold bg-gold/10 px-4 py-2 text-sm font-medium text-espresso transition hover:bg-gold/20"
+              >
+                🖨️ Open print-ready sheet
+              </Link>
+            </div>
             <div className="mt-6 inline-flex items-center gap-4 rounded-full border border-border bg-background px-4 py-2 text-sm shadow-sm">
               <span className="text-muted-foreground">Number of tables:</span>
               <div className="flex items-center gap-2">
