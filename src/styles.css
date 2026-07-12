@@ -169,18 +169,6 @@
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 0.75rem !important;
   }
-
-  @media (max-width: 800px) {
-    .qr-grid {
-      grid-template-columns: repeat(3, 1fr) !important;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .qr-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-  }
 }
 
 /* Screen-only helpers */
