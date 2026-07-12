@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { motion } from "framer-motion";
 import { MENU } from "@/lib/menu";
@@ -11,8 +11,11 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   const [tableCount, setTableCount] = useState(6);
-  const origin =
-    typeof window !== "undefined" ? window.location.origin : "";
+  const [origin, setOrigin] = useState("");
+
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
