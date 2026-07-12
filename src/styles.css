@@ -128,3 +128,67 @@
     radial-gradient(ellipse at top, color-mix(in oklab, var(--gold) 15%, transparent), transparent 60%),
     linear-gradient(180deg, var(--espresso) 0%, oklch(0.13 0.02 40) 100%);
 }
+
+/* Print-friendly QR sheet */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  body,
+  html {
+    background: white !important;
+    color: #2a1a10 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .screen-only,
+  nav,
+  header,
+  footer:not(.print-footer),
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  .print-header,
+  .print-footer {
+    display: block !important;
+  }
+
+  .qr-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #e5e5e5 !important;
+    box-shadow: none !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .qr-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  @media (max-width: 800px) {
+    .qr-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .qr-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+}
+
+/* Screen-only helpers */
+.screen-only {
+  display: block;
+}
+
+.print-header,
+.print-footer {
+  display: none;
+}
