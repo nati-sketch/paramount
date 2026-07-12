@@ -161,19 +161,40 @@ function Landing() {
               Each code links to a specific table number. Save the images or
               print this page.
             </p>
-            <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-border bg-background px-4 py-2 text-sm">
-              <label htmlFor="tc" className="text-muted-foreground">Tables:</label>
-              <input
-                id="tc"
-                type="number"
-                min={1}
-                max={30}
-                value={tableCount}
-                onChange={(e) =>
-                  setTableCount(Math.max(1, Math.min(30, Number(e.target.value) || 1)))
-                }
-                className="w-16 bg-transparent text-center font-semibold outline-none"
-              />
+            <div className="mt-6 inline-flex items-center gap-4 rounded-full border border-border bg-background px-4 py-2 text-sm shadow-sm">
+              <span className="text-muted-foreground">Number of tables:</span>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setTableCount((c) => Math.max(1, c - 1))}
+                  aria-label="Decrease table count"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-border bg-secondary text-foreground transition hover:bg-muted"
+                >
+                  −
+                </button>
+                <input
+                  id="tc"
+                  type="number"
+                  min={1}
+                  max={50}
+                  value={tableCount}
+                  onChange={(e) =>
+                    setTableCount(Math.max(1, Math.min(50, Number(e.target.value) || 1)))
+                  }
+                  className="w-14 bg-transparent text-center font-semibold outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => setTableCount((c) => Math.min(50, c + 1))}
+                  aria-label="Increase table count"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-border bg-secondary text-foreground transition hover:bg-muted"
+                >
+                  +
+                </button>
+              </div>
+              <span className="hidden text-xs text-muted-foreground sm:inline">
+                (Table 1 to Table {tableCount})
+              </span>
             </div>
           </div>
 
