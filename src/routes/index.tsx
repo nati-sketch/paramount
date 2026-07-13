@@ -218,7 +218,27 @@ function Landing() {
                 (Table 1 to Table {tableCount})
               </span>
             </div>
+
+            <div className="mx-auto mt-4 max-w-md text-left">
+              <label htmlFor="publicUrl" className="block text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                Public website URL (for QR codes)
+              </label>
+              <input
+                id="publicUrl"
+                type="url"
+                inputMode="url"
+                placeholder="https://yourcafe.com"
+                value={publicUrl}
+                onChange={(e) => savePublicUrl(e.target.value)}
+                className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm shadow-sm outline-none focus:border-primary"
+              />
+              <p className="mt-1 text-[11px] text-muted-foreground">
+                Leave empty to use the current address. Set this to your published domain so scans open the live site, not the editor.
+              </p>
+            </div>
           </div>
+
+
 
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: tableCount }).map((_, i) => {
