@@ -19,12 +19,16 @@ const MAX_TABLES = 50;
 
 function PrintQrPage() {
   const [origin, setOrigin] = useState("");
+  const [publicUrl, setPublicUrl] = useState("");
   const search = Route.useSearch();
   const tableCount = Math.max(1, Math.min(MAX_TABLES, Number(search.tables) || 6));
 
   useEffect(() => {
+    setPublicUrl(localStorage.getItem("paramount_public_url") ?? "");
     setOrigin(window.location.origin);
   }, []);
+
+  const baseUrl = (publicUrl.trim().replace(/\/+$/, "")) || origin;
 
   return (
     <div className="min-h-screen bg-white text-espresso">
