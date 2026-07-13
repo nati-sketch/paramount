@@ -223,7 +223,7 @@ function Landing() {
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: tableCount }).map((_, i) => {
               const n = i + 1;
-              const url = `${origin}/order/${n}`;
+              const url = `${baseUrl}/order/${n}`;
               return (
                 <div
                   key={n}
