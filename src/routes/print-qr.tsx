@@ -19,12 +19,16 @@ const MAX_TABLES = 50;
 
 function PrintQrPage() {
   const [origin, setOrigin] = useState("");
+  const [publicUrl, setPublicUrl] = useState("");
   const search = Route.useSearch();
   const tableCount = Math.max(1, Math.min(MAX_TABLES, Number(search.tables) || 6));
 
   useEffect(() => {
+    setPublicUrl(localStorage.getItem("paramount_public_url") ?? "");
     setOrigin(window.location.origin);
   }, []);
+
+  const baseUrl = (publicUrl.trim().replace(/\/+$/, "")) || origin;
 
   return (
     <div className="min-h-screen bg-white text-espresso">
@@ -65,7 +69,7 @@ function PrintQrPage() {
         <div className="qr-grid grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {Array.from({ length: tableCount }).map((_, i) => {
             const n = i + 1;
-            const url = `${origin}/order/${n}`;
+            const url = `${baseUrl}/order/${n}`;
             return (
               <div
                 key={n}
@@ -78,7 +82,7 @@ function PrintQrPage() {
                   {n}
                 </span>
                 <div className="my-2 rounded bg-white p-1">
-                  {origin && (
+                  {baseUrl && (
                     <QRCodeSVG
                       value={url}
                       size={160}
@@ -89,7 +93,7 @@ function PrintQrPage() {
                   )}
                 </div>
                 <span className="text-[10px] text-muted-foreground">
-                  {origin ? url : `Table ${n}`}
+                  {baseUrl ? url : `Table ${n}`}
                 </span>
               </div>
             );
