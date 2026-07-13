@@ -82,7 +82,7 @@ function PrintQrPage() {
                   {n}
                 </span>
                 <div className="my-2 rounded bg-white p-1">
-                  {origin && (
+                  {baseUrl && (
                     <QRCodeSVG
                       value={url}
                       size={160}
@@ -93,7 +93,7 @@ function PrintQrPage() {
                   )}
                 </div>
                 <span className="text-[10px] text-muted-foreground">
-                  {origin ? url : `Table ${n}`}
+                  {baseUrl ? url : `Table ${n}`}
                 </span>
               </div>
             );
