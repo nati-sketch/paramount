@@ -12,10 +12,20 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const [tableCount, setTableCount] = useState(6);
   const [origin, setOrigin] = useState("");
+  const [publicUrl, setPublicUrl] = useState("");
 
   useEffect(() => {
+    const saved = localStorage.getItem("paramount_public_url") ?? "";
+    setPublicUrl(saved);
     setOrigin(window.location.origin);
   }, []);
+
+  const baseUrl = (publicUrl.trim().replace(/\/+$/, "")) || origin;
+
+  const savePublicUrl = (val: string) => {
+    setPublicUrl(val);
+    localStorage.setItem("paramount_public_url", val);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
